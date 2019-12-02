@@ -9,7 +9,7 @@
 #include <sstream>
 
 int day_1_part_1(){
-    std::fstream infile("day1.txt");
+    std::fstream infile("res/day1.txt");
     std::string s;
     int total = 0;
     while(getline(infile, s)){
@@ -22,7 +22,7 @@ int day_1_part_1(){
 }
 
 int day_1_part_2(){
-    std::fstream infile("day1.txt");
+    std::fstream infile("res/day1.txt");
     std::string s;
     int total = 0;
     while(getline(infile, s)){

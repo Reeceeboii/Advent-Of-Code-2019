@@ -4,7 +4,7 @@
 
 
 #include <iostream>
-#include "day1.h"
+#include "src/day1.h"
 
 int main(){
     std::cout << day_1_part_1() << "\n";

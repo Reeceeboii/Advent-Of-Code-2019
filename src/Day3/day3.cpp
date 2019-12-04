@@ -30,18 +30,18 @@ std::vector<std::vector<point>> load_lines(){
         while(getline(ss, movement, ',')){
             int direction;
             switch(movement[0]){
-                    /*
-                     * As we're moving right (adding to x) we loop from the current x all the way until the current x
-                     * plus the amount we're moving by. For each iteration, we add a new pair to the current line we're on.
-                     * The y of this pair is the current y, and the x is the current loop counter.
-                     *  So for example, if we're currently at 0,0 and we read R5, we will add
-                     *  0,0 - 1,0 - 2,0 - 3,0 - 4,0 - 5,0 to that line's vector to represent all points we now have in that line
-                     *  as a result of this movement. This is done for all directions. If you traced these coordinate pairs
-                     *  on a graph you would end up with the line represented by the movements from the file.
-                     *
-                     *  Once we then have these coordinate pair collections, we take their intersection (points in common)
-                     *  and calculate the manhattan distance for all of them. The minimum distance is returned.
-                     */
+            /*
+             * As we're moving right (adding to x) we loop from the current x all the way until the current x
+             * plus the amount we're moving by. For each iteration, we add a new pair to the current line we're on.
+             * The y of this pair is the current y, and the x is the current loop counter.
+             *  So for example, if we're currently at 0,0 and we read R5, we will add
+             *  0,0 - 1,0 - 2,0 - 3,0 - 4,0 - 5,0 to that line's vector to represent all points we now have in that
+             *  line as a result of this movement. This is done for all directions. If you traced these coordinate
+             *  pairs on a graph you would end up with the line represented by the movements from the file.
+             *
+             *  Once we then have these coordinate pair collections, we take their intersection (points in common)
+             *  and calculate the manhattan distance for all of them. The minimum distance is returned.
+             */
                 case 'R': { // x increasing
                     std::stringstream value(movement.substr(1, movement.size()));
                     value >> direction;

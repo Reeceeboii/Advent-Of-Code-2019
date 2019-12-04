@@ -16,5 +16,6 @@ int main(){
     std::cout << "Day 2 part 2: " << day_2_part_2() << "\n";
     // day 3
     std::cout << "Day 3 part 1: " << day_3_part_1() << "\n";
+    std::cout << "Day 3 part 2: " << day_3_part_2() << "\n";
 
 }

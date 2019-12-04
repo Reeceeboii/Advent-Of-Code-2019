@@ -2,20 +2,25 @@
 // Created by reece on 02/12/2019.
 //
 
+#include "src/Day1/day1.h"
+#include "src/Day2/day2.h"
+#include "src/Day3/day3.h"
 #include <iostream>
-#include "src/day1.h"
-#include "src/day2.h"
-#include "src/day3.h"
 
 int main(){
-    // day 1
-    std::cout << "Day 1 part 1: " << day_1_part_1() << "\n";
-    std::cout << "Day 1 part 2: " << day_1_part_2() << "\n";
-    // day 2
-    std::cout << "Day 2 part 1: " << day_2_part_1() << "\n";
-    std::cout << "Day 2 part 2: " << day_2_part_2() << "\n";
-    // day 3
-    std::cout << "Day 3 part 1: " << day_3_part_1() << "\n";
-    std::cout << "Day 3 part 2: " << day_3_part_2() << "\n";
 
+    std::cout << "---DAY 1---\n";
+    std::cout << "  Part 1: " << day_1_part_1() << "\n";
+    std::cout << "  Part 2: " << day_1_part_2();
+
+    std::cout << "\n---DAY 2---\n";
+    std::cout << "  Part 1: " << day_2_part_1() << "\n";
+    std::cout << "  Part 2: " << day_2_part_2();
+
+    std::cout << "\n---DAY 3---\n";
+    std::cout << "  Part 1: " << day_3_part_1() << "\n";
+    std::cout << "  Part 2: " << day_3_part_2();
+
+    std::cout << "\n";
+    return 0;
 }

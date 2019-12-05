@@ -3,14 +3,29 @@
 //
 
 #include "day4.h"
+#include <map>
+#include <algorithm>
+
+// map digits against their pairs (anything > 2 will result in their key mapping to a value higher than 1)
+bool contains_matching_pair(int potential_pwd){
+    std::map<int, int> pairs;
+    while(potential_pwd > 0){
+        int digit = potential_pwd % 10;
+        if(potential_pwd / 10 % 10 == digit){
+            pairs.find(digit) != pairs.end() ? ++pairs[digit] : pairs[digit] = 1;
+        }
+        potential_pwd /= 10;
+    }
+    // filter out and return
+    return std::find_if(pairs.begin(), pairs.end(), [](auto& p){ return p.second == 1; }) != pairs.end();
+}
 
 // continually mod by 10 to extract digits. Use this to check for adjacency and decreasing digits
 bool adjacent_digits(int potential_pwd){
     bool match = false;
     while(potential_pwd > 0 && !match){
         int digit = potential_pwd % 10; // pop last digit off number
-        int temp = potential_pwd / 10; // hold a temp equal to the digit after popping, and pop that too. Compare.
-        temp % 10 == digit ? match = true : potential_pwd /= 10;
+        potential_pwd / 10 % 10 == digit ? match = true : potential_pwd /= 10;
     }
     return match;
 }
@@ -20,8 +35,7 @@ bool never_decrease(int potential_pwd){
     bool match = true;
     while(potential_pwd > 0 && match){
         int digit = potential_pwd % 10;
-        int temp = potential_pwd / 10;
-        temp % 10 > digit ? match = false : potential_pwd /= 10;
+        potential_pwd / 10 % 10 > digit ? match = false : potential_pwd /= 10;
     }
     return match;
 }
@@ -29,8 +43,16 @@ bool never_decrease(int potential_pwd){
 
 int day_4_part_1(){
     int total = 0;
-    for(int iter = LOWER; iter <= HIGHER; ++iter){
-        if(adjacent_digits(iter) && never_decrease(iter)) ++total;
+    for(int i = LOWER; i <= HIGHER; ++i){
+        if(adjacent_digits(i) && never_decrease(i)) ++total;
+    }
+    return total;
+}
+
+int day_4_part_2(){
+    int total = 0;
+    for(int i = LOWER; i <= HIGHER; ++i) {
+        if(never_decrease(i) && contains_matching_pair(i)) ++total;
     }
     return total;
 }

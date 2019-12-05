@@ -4,7 +4,6 @@
 
 #include "day3.h"
 #include <fstream>
-#include <iostream>
 #include <sstream>
 #include <algorithm>
 #include <unordered_set>

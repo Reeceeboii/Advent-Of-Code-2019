@@ -25,6 +25,7 @@ int main(){
 
     std::cout << "\nDAY 4\n";
     std::cout << "  Part 1: " << day_4_part_1() << "\n";
+    std::cout << "  Part 2: " << day_4_part_2() << "\n";
 
     std::cout << "\n";
     return 0;

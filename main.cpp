@@ -6,6 +6,7 @@
 #include "src/Day2/day2.h"
 #include "src/Day3/day3.h"
 #include "src/Day4/day4.h"
+#include "src/Day5/day5.h"
 
 #include <iostream>
 
@@ -27,6 +28,9 @@ int main(){
     std::cout << "  Part 1: " << day_4_part_1() << "\n";
     std::cout << "  Part 2: " << day_4_part_2() << "\n";
 
+    std::cout << "\nDAY 5\n";
+    std::cout << "  Part 1: " << day_5_part_1() << "\n";
+    //std::cout << "  Part 2: " << day_4_part_2() << "\n";
     std::cout << "\n";
     return 0;
 }

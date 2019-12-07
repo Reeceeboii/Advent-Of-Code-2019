@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(Advent_Of_Code_2019
         src/Day1/day1.cpp
         src/Day1/day1.h
-        main.cpp src/Day2/day2.cpp src/Day2/day2.h src/Day3/day3.cpp src/Day3/day3.h src/Day4/day4.cpp src/Day4/day4.h src/Day5/day5.cpp src/Day5/day5.h)
+        main.cpp src/Day2/day2.cpp src/Day2/day2.h src/Day3/day3.cpp src/Day3/day3.h src/Day4/day4.cpp src/Day4/day4.h src/Day5/day5.cpp src/Day5/day5.h src/Day5/IntCodeComputer.cpp src/Day5/IntCodeComputer.h)

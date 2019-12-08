@@ -9,28 +9,32 @@
 #include <string>
 #include <map>
 
-typedef int instruction;
-const int OUT = 4;
-const int IN = 3;
-const int MULT = 2;
-const int ADD = 1;
-const int HALT = 99;
+struct op_and_params{
+    int opcode = 0; // the current instruction's opcode
+    std::vector<int> param_modes = {0, 0}; // parameter 1 and 2's addressing modes
+};
 
 class IntCodeComputer{
     private:
-        std::vector<instruction> memory;
-        std::map<instruction, int> branch_table;
-        int prev_instruction_pointer;
-        int instruction_pointer;
-        bool is_system_running;
+        enum mnemonics {
+            EQUALS = 8, LESS_THAN = 7, JUMP_IF_FALSE = 6 ,JUMP_IF_TRUE = 5,
+            OUT = 4, IN = 3, MULT = 2, ADD = 1, HALT = 9
+        };
+        std::vector<int> memory;
+        op_and_params oap;
+        int instruction_ptr;
+        bool system_running;
     public:
         explicit IntCodeComputer(const std::string& program_location);
         void load_memory(const std::string& program_location);
-        void load_branch_table();
-        void memory_dump();
         void step();
+        void interpret_opcode(int opcode);
+        int run_opcode(int operand_1, int operand_2);
         void execute();
-
 };
+
+// driver functions called from main
+void day_5_part_1();
+void day_5_part_2();
 
 #endif //ADVENT_OF_CODE_2019_INTCODECOMPUTER_H
